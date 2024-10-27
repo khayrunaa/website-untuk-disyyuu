@@ -1,0 +1,129 @@
+<html>
+ <head>
+  <title>
+   Countdown Timer
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            background-color: #d1b2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            background-color: #f7e6ff;
+            background-image: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png');
+        }
+        .image {
+            margin-right: 20px;
+        }
+        .image img {
+            border-radius: 10px;
+            width: 200px;
+            height: auto;
+        }
+        .countdown {
+            display: flex;
+            align-items: center;
+        }
+        .countdown div {
+            text-align: center;
+            margin: 0 10px;
+        }
+        .countdown div span {
+            display: block;
+            font-size: 2em;
+            color: #1a237e;
+        }
+        .countdown div small {
+            display: block;
+            font-size: 0.8em;
+            color: #1a237e;
+        }
+        .arrow {
+            margin-left: 20px;
+            font-size: 2em;
+            color: #1a237e;
+            cursor: pointer;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <div class="image">
+    <img alt="A couple taking a selfie in a car" height="200" src="ndadidi3.JPG" width="200"/>
+   </div>
+   <div class="countdown">
+    <div>
+     <span id="days">
+      0
+     </span>
+     <small>
+      Days
+     </small>
+    </div>
+    <div>
+     <span id="hours">
+      0
+     </span>
+     <small>
+      Hrs
+     </small>
+    </div>
+    <div>
+     <span id="minutes">
+      0
+     </span>
+     <small>
+      Mins
+     </small>
+    </div>
+    <div>
+     <span id="seconds">
+      0
+     </span>
+     <small>
+      Secs
+     </small>
+    </div>
+   </div>
+   <div class="arrow" onclick="goToNextPage()">
+    <i class="fas fa-arrow-right">
+    </i>
+   </div>
+  </div>
+  <script>
+   function updateCountdown() {
+            const now = new Date();
+            const startDate = new Date(2014, 9, 20); // October is month 9 (0-based index)
+            const diff = now - startDate; // Calculate the difference in milliseconds
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        function goToNextPage() {
+            window.location.href = "nextpage3.html";
+        }
+
+        setInterval(updateCountdown,  1000); // Update the countdown every second
+  </script>
+ </body>
+</html>

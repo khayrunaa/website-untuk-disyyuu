@@ -1,0 +1,127 @@
+<html>
+<head>
+    <title>Web Page</title>
+    <style>
+        body {
+            background-color: #D8BFD8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #FFFFE0;
+            border: 2px solid #000;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+        }
+        .image {
+            border: 2px dashed #000;
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        .image img {
+            width: 100px;
+            height: 100px;
+        }
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .keypad button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            border: 2px solid #000;
+            background-color: #FFF;
+            cursor: pointer;
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .hearts img {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+        .heart1 {
+            top: 10px;
+            left: 10px;
+        }
+        .heart2 {
+            bottom: 10px;
+            right: 10px;
+        }
+        .footer {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #000;
+        }
+        .input-display {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img alt="Cartoon image of a couple with hearts around them" src="ndadidi.JPG">
+        </div>
+        <div class="input-display" id="inputDisplay">....</div>
+        <div class="keypad">
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="appendNumber('*')">*</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('#')">#</button>
+        </div>
+      
+    </div>
+    <script>
+        let input = '';
+
+        function appendNumber(number) {
+            if (input.length < 4) {
+                input += number;
+                document.getElementById('inputDisplay').innerText = input.padEnd(4, '.');
+            }
+            if (input.length === 4) {
+                validateInput();
+            }
+        }
+
+        function validateInput() {
+            if (input === '0305') {
+                window.location.href = 'nextpage.html';
+            } else {
+                alert('maaf anda bukan bagian dari ndaaa and didiii');
+                input = '';
+                document.getElementById('inputDisplay').innerText = '....';
+            }
+        }
+    </script>
+</body>
+</html>
